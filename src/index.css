@@ -7,20 +7,59 @@
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 2rem;
   line-height: 1.7;
-  color: #777;
+  color: #ffff;
+  /* padding: 0.8rem; */
 }
 
 .header {
   height: 95vh;
   background: linear-gradient(
-      to top,
-      hsla(163, 100%, 50%, 0.2),
-      hsla(93, 100%, 50%, 0.2),
-      hsla(153, 100%, 50%, 0.3)
+      360deg,
+      hsla(0, 0%, 0%, 0.1),
+      hsla(78, 93%, 94%, 0.8),
+      hsla(188, 93%, 72%, 0.9)
     ),
-    url("./assets/sunset.jpg");
+    url("./assets/bgbluegreen.jpg");
   background-size: cover;
   background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.logo {
+  height: 3rem;
+  width: auto;
+}
+
+.heading-primary {
+  position: absolute;
+  color: #ffff;
+  text-transform: uppercase;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 0.9;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: -0.7rem;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
 }
