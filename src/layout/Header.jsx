@@ -9,7 +9,7 @@ const Header = () => {
       <h1 className="heading-primary">
         <span className="heading-primary-main">WWWave</span>
         <span className="heading-primary-sub">
-          Exciting tours for adventurous for your brain
+          Exciting tours for your brain
         </span>
       </h1>
     </header>

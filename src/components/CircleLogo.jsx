@@ -29,11 +29,12 @@ const CircleLogo = () => {
           gradientUnits="userSpaceOnUse"
         >
           {" "}
-          <stop stopColor="#fff" /> <stop offset="1" stopColor="#fff" />{" "}
+          <stop stopColor="#ffffff58" />{" "}
+          <stop offset="1" stopColor="#ffffff58" />{" "}
         </linearGradient>{" "}
         <clipPath id="clip0_227_4">
           {" "}
-          <rect width="200" height="200" fill="#fccc" />{" "}
+          <rect width="200" height="200" fill="#ffffff58" />{" "}
         </clipPath>{" "}
       </defs>{" "}
     </svg>
