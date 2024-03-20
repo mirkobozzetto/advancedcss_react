@@ -52,6 +52,18 @@ body {
   fill: #ffffff39;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
 .heading-primary {
   position: absolute;
   /* color: #afd6c4; */
@@ -62,22 +74,22 @@ body {
   text-align: center;
   line-height: 0.9;
   background: linear-gradient(
-    to right,
-    hsla(137, 29%, 54%, 0.8),
-    hsla(335, 21%, 71%, 0.8),
-    hsla(188, 54%, 41%, 0.8)
+    to left,
+    hsla(117, 19%, 64%, 0.9),
+    hsla(200, 64%, 51%, 1)
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* backdrop-filter: blur(5px); */
+  background-size: 200% auto;
+  animation: gradient 3s linear infinite;
 }
 
 .heading-primary-main {
   display: block;
   font-size: 8rem;
   font-weight: 400;
-  letter-spacing: -0.7rem;
+  letter-spacing: -0.85rem;
 }
 
 .heading-primary-sub {
