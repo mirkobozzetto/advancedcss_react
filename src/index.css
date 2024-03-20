@@ -9,7 +9,7 @@ body {
   font-weight: 400;
   font-size: 2rem;
   line-height: 1.7;
-  color: #ffff;
+  color: #afd6c4;
   /* padding: 0.8rem; */
 }
 
@@ -17,14 +17,14 @@ body {
   height: 95vh;
   background: linear-gradient(
       360deg,
-      hsla(0, 0%, 0%, 0.1),
-      hsla(78, 93%, 94%, 0.8),
-      hsla(188, 93%, 72%, 0.9)
+      hsla(0, 0%, 0%, 0.644),
+      hsla(207, 100%, 9%, 0.8),
+      hsla(188, 100%, 7%, 0.9)
     ),
-    url("./assets/bgbluegreen.jpg");
+    url("./assets/blacksky.jpg");
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); */
   position: relative;
 }
 
@@ -38,22 +38,44 @@ body {
 .logo {
   height: 30rem;
   width: auto;
+  /* animation: rotate 12s cubic-bezier(0.42, 0, 0.58, 1) infinite; */
+}
+
+.stopColor {
+  stop-color: #ffffff29;
+}
+.stopColorOff {
+  stop-color: #ffffff00;
+}
+
+.rectFill {
+  fill: #ffffff39;
 }
 
 .heading-primary {
   position: absolute;
-  color: #ffff;
+  /* color: #afd6c4; */
   text-transform: uppercase;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   line-height: 0.9;
+  background: linear-gradient(
+    to right,
+    hsla(137, 29%, 54%, 0.8),
+    hsla(335, 21%, 71%, 0.8),
+    hsla(188, 54%, 41%, 0.8)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* backdrop-filter: blur(5px); */
 }
 
 .heading-primary-main {
   display: block;
-  font-size: 6rem;
+  font-size: 8rem;
   font-weight: 400;
   letter-spacing: -0.7rem;
 }
