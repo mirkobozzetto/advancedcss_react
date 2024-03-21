@@ -11,19 +11,15 @@ const AudioController = () => {
   const [beat, setBeat] = useState(beatFrequency);
   const [fundamental, setFundamental] = useState(fundamentalFrequency);
   const [intervals, setIntervals] = useState(frequencyIntervals);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (audioContext.state === "suspended") {
-      const resumeAudio = () => {
-        audioContext.resume();
-
-        // Once the audio context is running, we can remove the event listener.
-        window.removeEventListener("click", resumeAudio);
-      };
-
-      window.addEventListener("click", resumeAudio);
+    if (isPlaying && audioContext.state === "suspended") {
+      audioContext.resume();
+    } else if (!isPlaying && audioContext.state === "running") {
+      audioContext.suspend();
     }
-  }, []);
+  }, [isPlaying]);
 
   const handleBeatChange = (event) => {
     setBeat(event.target.value);
@@ -41,8 +37,13 @@ const AudioController = () => {
     setAudioParameters(beat, fundamental, newIntervals);
   };
 
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div>
+      <button onClick={togglePlay}>{isPlaying ? "Stop" : "Start"}</button>
       <label>
         Beat frequency:
         <input type="number" value={beat} onChange={handleBeatChange} />
