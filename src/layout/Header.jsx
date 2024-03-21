@@ -6,14 +6,12 @@ const Header = () => {
       <div className="header__logo-box">
         <CircleLogo />
       </div>
-      <div className="header__text-box">
-        <h1 className="heading-primary">
-          <span className="heading-primary--main">WWWave</span>
-          <span className="heading-primary--sub">
-            Exciting journeys for your mind
-          </span>
-        </h1>
-      </div>
+      <h1 className="heading-primary">
+        <span className="heading-primary--main">WWWave</span>
+        <span className="heading-primary--sub">
+          Exciting journeys for your mind
+        </span>
+      </h1>
     </header>
   );
 };
