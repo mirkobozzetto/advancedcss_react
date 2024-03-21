@@ -1,10 +1,12 @@
-$primary: hsl(152, 32%, 76%);
-$primary-dark: hsl(152, 32%, 56%);
-$primary-light: hsl(152, 32%, 96%);
-$secondary: hsl(230, 32%, 76%);
-$secondary-dark: hsl(230, 32%, 56%);
-$secondary-light: hsl(230, 32%, 96%);
+$primary: hsl(117, 19%, 64%);
+$primary-light: hsl(117, 19%, 84%);
+$secondary: hsl(207, 64%, 51%);
+$secondary-light: hsl(200, 64%, 71%);
+$bg-dark1: hsla(230, 30%, 10%, 0.6);
+$bg-dark2: hsla(207, 100%, 9%, 0.8);
+$bg-dark3: hsla(188, 100%, 7%, 0.9);
 $dark: hsl(230, 30%, 10%);
+$grey: hsl(230, 10%, 20%);
 
 *,
 *::before,
@@ -28,9 +30,9 @@ body {
   height: 97.5vh;
   background: linear-gradient(
       360deg,
-      hsla(0, 0%, 0%, 0.644),
-      hsla(207, 100%, 9%, 0.8),
-      hsla(188, 100%, 7%, 0.9)
+      rgba($bg-dark1, 0.6),
+      rgba($bg-dark2, 0.8),
+      rgba($bg-dark3, 0.9)
     ),
     url("./assets/blacksky.jpg");
   background-size: cover;
@@ -51,14 +53,14 @@ body {
 }
 
 .header__logo--stopColor {
-  stop-color: #ffffff29;
+  stop-color: rgba($primary-light, 0.1);
 }
 .header__logo--stopColorOff {
-  stop-color: #ffffff00;
+  stop-color: rgba($primary-light, 0);
 }
 
 .header__logo--rectFill {
-  fill: #ffffff39;
+  fill: rgba($primary-light, 0.2);
 }
 
 @keyframes gradient {
@@ -81,11 +83,7 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
   line-height: 0.9;
-  background: linear-gradient(
-    to left,
-    hsla(117, 19%, 64%, 0.9),
-    hsla(200, 64%, 51%, 1)
-  );
+  background: linear-gradient(to left, rgba($primary, 0.8), $secondary);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
