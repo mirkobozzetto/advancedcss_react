@@ -1,0 +1,32 @@
+.header {
+  height: 97.5vh;
+  background: linear-gradient(
+      360deg,
+      rgba($bg-dark1, 0.6),
+      rgba($bg-dark2, 0.8),
+      rgba($bg-dark3, 0.9)
+    ),
+    url("./assets/blacksky.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 40rem;
+    width: auto;
+
+    &--stopColor {
+      stop-color: rgba($primary-light, 0.1);
+    }
+    &--stopColorOff {
+      stop-color: rgba($primary-light, 0);
+    }
+    &--rectFill {
+      fill: rgba($primary-light, 0.2);
+    }
+  }
+}
