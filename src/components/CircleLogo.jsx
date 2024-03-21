@@ -1,9 +1,7 @@
 const CircleLogo = () => {
   return (
     <svg
-      className="logo"
-      // width="200"
-      // height="200"
+      className="header__logo"
       viewBox="0 0 200 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -29,12 +27,12 @@ const CircleLogo = () => {
           gradientUnits="userSpaceOnUse"
         >
           {" "}
-          <stop className="stopColor" />
-          <stop offset="1" className="stopColorOff" />
+          <stop className="header__logo--stopColor" />
+          <stop offset="1" className="header__logo--stopColorOff" />
         </linearGradient>{" "}
         <clipPath id="clip0_227_4">
           {" "}
-          <rect width="200" height="200" className="rectFill" />
+          <rect width="200" height="200" className="header__logo--rectFill" />
         </clipPath>{" "}
       </defs>{" "}
     </svg>

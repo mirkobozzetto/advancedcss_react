@@ -1,16 +1,27 @@
-* {
+$primary: hsl(152, 32%, 76%);
+$primary-dark: hsl(152, 32%, 56%);
+$primary-light: hsl(152, 32%, 96%);
+$secondary: hsl(230, 32%, 76%);
+$secondary-dark: hsl(230, 32%, 56%);
+$secondary-light: hsl(230, 32%, 96%);
+$dark: hsl(230, 30%, 10%);
+
+$ *,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 2rem;
   line-height: 1.7;
-  color: #afd6c4;
-  /* padding: 0.8rem; */
 }
 
 .header {
@@ -24,31 +35,29 @@ body {
     url("./assets/blacksky.jpg");
   background-size: cover;
   background-position: top;
-  /* clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); */
   position: relative;
 }
 
-.logo-box {
+.header__logo {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.logo {
-  height: 30rem;
+.header__logo {
+  height: 40rem;
   width: auto;
-  /* animation: rotate 12s cubic-bezier(0.42, 0, 0.58, 1) infinite; */
 }
 
-.stopColor {
+.header__logo--stopColor {
   stop-color: #ffffff29;
 }
-.stopColorOff {
+.header__logo--stopColorOff {
   stop-color: #ffffff00;
 }
 
-.rectFill {
+.header__logo--rectFill {
   fill: #ffffff39;
 }
 
@@ -66,7 +75,6 @@ body {
 
 .heading-primary {
   position: absolute;
-  /* color: #afd6c4; */
   text-transform: uppercase;
   top: 50%;
   left: 50%;
@@ -85,16 +93,25 @@ body {
   animation: gradient 3s linear infinite;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 8rem;
+  font-size: 11.25rem;
   font-weight: 400;
-  letter-spacing: -0.85rem;
+  letter-spacing: -1rem;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 1.75rem;
+  font-weight: 800;
   letter-spacing: 0.3rem;
+  margin-top: 0.9rem;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
