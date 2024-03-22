@@ -1,17 +1,16 @@
-import { useState, useEffect } from "react";
-import {
-  audioContext,
-  beatFrequency,
-  frequencyIntervals,
-  fundamentalFrequency,
-  setAudioParameters,
-} from "../utils/binauralWaves";
+import { useState, useEffect, useMemo } from "react";
+import Oscillator from "../utils/binauralWaves";
 
 const AudioController = () => {
-  const [beat, setBeat] = useState(beatFrequency);
-  const [fundamental, setFundamental] = useState(fundamentalFrequency);
-  const [intervals, setIntervals] = useState(frequencyIntervals);
+  const audioContext = useMemo(
+    () => new (window.AudioContext || window.webkitAudioContext)(),
+    []
+  );
+  const [oscillatorLeft] = useState(new Oscillator(audioContext, -1));
+  const [oscillatorRight] = useState(new Oscillator(audioContext, 1));
   const [isPlaying, setIsPlaying] = useState(false);
+  const [frequencyLeft, setFrequencyLeft] = useState(432);
+  const [frequencyRight, setFrequencyRight] = useState(432);
 
   useEffect(() => {
     if (isPlaying && audioContext.state === "suspended") {
@@ -19,22 +18,25 @@ const AudioController = () => {
     } else if (!isPlaying && audioContext.state === "running") {
       audioContext.suspend();
     }
-  }, [isPlaying]);
+  }, [isPlaying, audioContext]);
 
-  const handleBeatChange = (event) => {
-    setBeat(event.target.value);
-    setAudioParameters(event.target.value, fundamental, intervals);
+  useEffect(() => {
+    return () => {
+      oscillatorLeft.stopOscillator();
+      oscillatorRight.stopOscillator();
+    };
+  }, [oscillatorLeft, oscillatorRight]);
+
+  const handleFrequencyLeftChange = (event) => {
+    const newFrequency = event.target.value;
+    setFrequencyLeft(newFrequency);
+    oscillatorLeft.setFrequency(newFrequency);
   };
 
-  const handleFundamentalChange = (event) => {
-    setFundamental(event.target.value);
-    setAudioParameters(beat, event.target.value, intervals);
-  };
-
-  const handleIntervalsChange = (event) => {
-    const newIntervals = event.target.value.split(",").map(Number);
-    setIntervals(newIntervals);
-    setAudioParameters(beat, fundamental, newIntervals);
+  const handleFrequencyRightChange = (event) => {
+    const newFrequency = event.target.value;
+    setFrequencyRight(newFrequency);
+    oscillatorRight.setFrequency(newFrequency);
   };
 
   const togglePlay = () => {
@@ -45,25 +47,20 @@ const AudioController = () => {
     <div>
       <button onClick={togglePlay}>{isPlaying ? "Stop" : "Start"}</button>
       <label>
-        Beat frequency:
-        <input type="number" value={beat} onChange={handleBeatChange} />
-      </label>
-      <label>
-        Fundamental frequency:
+        Left ear frequency:
         <input
           type="number"
-          value={fundamental}
-          onChange={handleFundamentalChange}
+          value={frequencyLeft}
+          onChange={handleFrequencyLeftChange}
         />
       </label>
       <label>
-        Frequency intervals:
+        Right ear frequency:
         <input
-          type="text"
-          value={intervals.join(",")}
-          onChange={handleIntervalsChange}
+          type="number"
+          value={frequencyRight}
+          onChange={handleFrequencyRightChange}
         />
-        <small>(Enter numbers separated by commas)</small>
       </label>
     </div>
   );

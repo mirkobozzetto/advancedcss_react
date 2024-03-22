@@ -1,0 +1,21 @@
+.section-about {
+  color: $light1;
+  padding: 25rem;
+  background: linear-gradient(to bottom, $dark, rgba($bg-dark2, 0.99));
+  background-size: cover;
+  position: relative;
+  height: 90vh;
+
+  .heading-secondary {
+    font-size: 3rem;
+    text-transform: lowercase;
+    margin-bottom: 3rem;
+    color: white;
+    background: linear-gradient(to left, rgba($bg-dark2, 0.9), $primary-light);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 100% auto;
+    animation: gradient 6s ease-out infinite;
+  }
+}
